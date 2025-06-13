@@ -9,12 +9,10 @@ public class Fraction {
             throw new IllegalArgumentException("Le dénominateur ne peut pas être zéro.");
         }
 
-        // Simplification
         int gcd = pgcd(num, den);
         num /= gcd;
         den /= gcd;
 
-        // Dénominateur positif
         if (den < 0) {
             num = -num;
             den = -den;
@@ -49,7 +47,6 @@ public class Fraction {
         return (double) num / den;
     }
 
-    @Override
     public String toString() {
         return num + "/" + den;
     }
@@ -58,8 +55,8 @@ public class Fraction {
         Fraction f = new Fraction(2, 3);
         Fraction g = new Fraction(1, 6);
 
-        System.out.println("f + g = " + f.add(g));       
-        System.out.println("f * g = " + f.multiply(g));  
+        System.out.println("f + g = " + f.add(g));
+        System.out.println("f * g = " + f.multiply(g));
 
         assert f.add(g).toString().equals("5/6") : "Addition incorrecte";
         assert f.multiply(g).toString().equals("1/9") : "Multiplication incorrecte";
