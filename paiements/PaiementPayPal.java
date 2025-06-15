@@ -25,4 +25,12 @@ public class PaiementPayPal implements Paiement {
     public String getType() {
         return "PayPal";
     }
+
+        
+    
+    @Override
+    public int getPriorite() {
+        return 2;
+    }
+
 }

@@ -1,25 +1,27 @@
 package paiements;
 
-public class PaiementCarte implements Paiement {
+public class PaiementDoge implements Paiement {
+ 
     private double solde;
+    
 
-    public PaiementCarte(String numero, double solde) {
+    public PaiementDoge(String wallet, double solde) {
+      
         this.solde = solde;
     }
 
     @Override
     public boolean payer(double montant) {
-        if (montant <= solde) {
+        if (solde >= montant) {
             solde -= montant;
             return true;
         }
         return false;
     }
 
-        
     @Override
-    public int getPriorite() {
-        return 1; // Plus prioritaire
+    public String getType() {
+        return "DogeCoin";
     }
 
     @Override
@@ -28,9 +30,7 @@ public class PaiementCarte implements Paiement {
     }
 
     @Override
-    public String getType() {
-        return "Carte bancaire";
+    public int getPriorite() {
+        return 3;
     }
-
-    
 }

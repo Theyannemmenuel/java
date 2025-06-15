@@ -12,8 +12,10 @@ public class GestionnairePaiement {
     public void ajouterMethode(Paiement methode) {
         methodes.add(methode);
     }
-
     public boolean effectuerPaiement(double montant) {
+        // On trie la liste par ordre de priorité croissante
+        methodes.sort((p1, p2) -> Integer.compare(p1.getPriorite(), p2.getPriorite()));
+    
         for (Paiement p : methodes) {
             if (p.payer(montant)) {
                 System.out.println("Paiement effectué via " + p.getType());
@@ -23,4 +25,5 @@ public class GestionnairePaiement {
         System.out.println("Échec du paiement : fonds insuffisants.");
         return false;
     }
+    
 }
